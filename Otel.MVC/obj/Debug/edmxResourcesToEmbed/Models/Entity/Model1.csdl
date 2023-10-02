@@ -1,0 +1,82 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Schema Namespace="OtelMvcModel" Alias="Self" annotation:UseStrongSpatialTypes="false" xmlns:annotation="http://schemas.microsoft.com/ado/2009/02/edm/annotation" xmlns:customannotation="http://schemas.microsoft.com/ado/2013/11/edm/customannotation" xmlns="http://schemas.microsoft.com/ado/2009/11/edm">
+  <EntityType Name="Kampanya">
+    <Key>
+      <PropertyRef Name="KampanyaID" />
+    </Key>
+    <Property Name="KampanyaID" Type="Int32" Nullable="false" />
+    <Property Name="KampanyaAdı" Type="String" MaxLength="25" FixedLength="false" Unicode="false" />
+    <Property Name="BaslangicTarihi" Type="DateTime" Precision="0" />
+    <Property Name="BitisTarihi" Type="DateTime" Precision="0" />
+    <Property Name="KampanyanyaFoto" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" />
+    <Property Name="OtellID" Type="Int32" />
+    <NavigationProperty Name="Otel" Relationship="Self.FK__Kampanya__OtellI__403A8C7D" FromRole="Kampanya" ToRole="Otel" />
+  </EntityType>
+  <EntityType Name="Musteri">
+    <Key>
+      <PropertyRef Name="MusteriID" />
+    </Key>
+    <Property Name="MusteriID" Type="Int32" Nullable="false" />
+    <Property Name="MusteriAdi" Type="String" MaxLength="20" FixedLength="false" Unicode="false" />
+    <Property Name="MusteriSoyadi" Type="String" MaxLength="20" FixedLength="false" Unicode="false" />
+    <Property Name="MusteriAdres" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
+    <Property Name="Musterimail" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
+    <Property Name="MusteriTelefon" Type="String" MaxLength="30" FixedLength="false" Unicode="true" />
+  </EntityType>
+  <EntityType Name="Odalar">
+    <Key>
+      <PropertyRef Name="odaNumarası" />
+    </Key>
+    <Property Name="odaNumarası" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+    <Property Name="Odatipi" Type="String" MaxLength="1" FixedLength="false" Unicode="false" />
+    <Property Name="OdaFiyatı" Type="Int32" />
+    <Property Name="OdaÖzellik" Type="String" MaxLength="350" FixedLength="false" Unicode="false" />
+    <Property Name="OdaResım" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" />
+  </EntityType>
+  <EntityType Name="Otel">
+    <Key>
+      <PropertyRef Name="OtelID" />
+    </Key>
+    <Property Name="OtelID" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+    <Property Name="OtelAdi" Type="String" MaxLength="255" FixedLength="false" Unicode="false" Nullable="false" />
+    <Property Name="Adres" Type="String" MaxLength="255" FixedLength="false" Unicode="false" />
+    <Property Name="Telefon" Type="String" MaxLength="20" FixedLength="false" Unicode="false" />
+    <Property Name="YildizDerecesi" Type="Int32" />
+    <Property Name="Aciklama" Type="String" MaxLength="Max" FixedLength="false" Unicode="false" />
+    <Property Name="OtelResım" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" />
+    <NavigationProperty Name="Kampanya" Relationship="Self.FK__Kampanya__OtellI__403A8C7D" FromRole="Otel" ToRole="Kampanya" />
+  </EntityType>
+  <EntityType Name="sysdiagrams">
+    <Key>
+      <PropertyRef Name="diagram_id" />
+    </Key>
+    <Property Name="name" Type="String" MaxLength="128" FixedLength="false" Unicode="true" Nullable="false" />
+    <Property Name="principal_id" Type="Int32" Nullable="false" />
+    <Property Name="diagram_id" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+    <Property Name="version" Type="Int32" />
+    <Property Name="definition" Type="Binary" MaxLength="Max" FixedLength="false" />
+  </EntityType>
+  <Association Name="FK__Kampanya__OtellI__403A8C7D">
+    <End Role="Otel" Type="Self.Otel" Multiplicity="0..1" />
+    <End Role="Kampanya" Type="Self.Kampanya" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="Otel">
+        <PropertyRef Name="OtelID" />
+      </Principal>
+      <Dependent Role="Kampanya">
+        <PropertyRef Name="OtellID" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <EntityContainer Name="OtelMvcEntities" annotation:LazyLoadingEnabled="true">
+    <EntitySet Name="Kampanya" EntityType="Self.Kampanya" />
+    <EntitySet Name="Musteri" EntityType="Self.Musteri" />
+    <EntitySet Name="Odalar" EntityType="Self.Odalar" />
+    <EntitySet Name="Otel" EntityType="Self.Otel" />
+    <EntitySet Name="sysdiagrams" EntityType="Self.sysdiagrams" />
+    <AssociationSet Name="FK__Kampanya__OtellI__403A8C7D" Association="Self.FK__Kampanya__OtellI__403A8C7D">
+      <End Role="Otel" EntitySet="Otel" />
+      <End Role="Kampanya" EntitySet="Kampanya" />
+    </AssociationSet>
+  </EntityContainer>
+</Schema>

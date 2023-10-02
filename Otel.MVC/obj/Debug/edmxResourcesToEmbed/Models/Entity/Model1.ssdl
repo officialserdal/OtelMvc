@@ -1,0 +1,95 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Schema Namespace="OtelMvcModel.Store" Provider="System.Data.SqlClient" ProviderManifestToken="2012" Alias="Self" xmlns:store="http://schemas.microsoft.com/ado/2007/12/edm/EntityStoreSchemaGenerator" xmlns:customannotation="http://schemas.microsoft.com/ado/2013/11/edm/customannotation" xmlns="http://schemas.microsoft.com/ado/2009/11/edm/ssdl">
+  <EntityType Name="Kampanya">
+    <Key>
+      <PropertyRef Name="KampanyaID" />
+    </Key>
+    <Property Name="KampanyaID" Type="int" Nullable="false" />
+    <Property Name="KampanyaAdı" Type="varchar" MaxLength="25" />
+    <Property Name="BaslangicTarihi" Type="date" />
+    <Property Name="BitisTarihi" Type="date" />
+    <Property Name="KampanyanyaFoto" Type="nvarchar(max)" />
+    <Property Name="OtellID" Type="int" />
+  </EntityType>
+  <EntityType Name="Musteri">
+    <Key>
+      <PropertyRef Name="MusteriID" />
+    </Key>
+    <Property Name="MusteriID" Type="int" Nullable="false" />
+    <Property Name="MusteriAdi" Type="varchar" MaxLength="20" />
+    <Property Name="MusteriSoyadi" Type="varchar" MaxLength="20" />
+    <Property Name="MusteriAdres" Type="nvarchar" MaxLength="50" />
+    <Property Name="Musterimail" Type="varchar" MaxLength="50" />
+    <Property Name="MusteriTelefon" Type="nvarchar" MaxLength="30" />
+  </EntityType>
+  <EntityType Name="Odalar">
+    <Key>
+      <PropertyRef Name="odaNumarası" />
+    </Key>
+    <Property Name="odaNumarası" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+    <Property Name="Odatipi" Type="varchar" MaxLength="1" />
+    <Property Name="OdaFiyatı" Type="int" />
+    <Property Name="OdaÖzellik" Type="varchar" MaxLength="350" />
+    <Property Name="OdaResım" Type="nvarchar(max)" />
+  </EntityType>
+  <EntityType Name="Otel">
+    <Key>
+      <PropertyRef Name="OtelID" />
+    </Key>
+    <Property Name="OtelID" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+    <Property Name="OtelAdi" Type="varchar" MaxLength="255" Nullable="false" />
+    <Property Name="Adres" Type="varchar" MaxLength="255" />
+    <Property Name="Telefon" Type="varchar" MaxLength="20" />
+    <Property Name="YildizDerecesi" Type="int" />
+    <Property Name="Aciklama" Type="text" />
+    <Property Name="OtelResım" Type="nvarchar(max)" />
+  </EntityType>
+  <!--Errors Found During Generation:
+warning 6013: The table/view 'OtelMvc.dbo.otelinceleme' does not have a primary key defined and no valid primary key could be inferred. This table/view has been excluded. To use the entity, you will need to review your schema, add the correct keys, and uncomment it.
+        <EntityType Name="otelinceleme">
+          <Property Name="İncelemeID" Type="int" />
+          <Property Name="OtelID" Type="int" />
+          <Property Name="MusteriID" Type="int" />
+          <Property Name="Yorum" Type="nvarchar(max)" />
+          <Property Name="Puanlama" Type="int" />
+        </EntityType>-->
+  <EntityType Name="sysdiagrams">
+    <Key>
+      <PropertyRef Name="diagram_id" />
+    </Key>
+    <Property Name="name" Type="nvarchar" MaxLength="128" Nullable="false" />
+    <Property Name="principal_id" Type="int" Nullable="false" />
+    <Property Name="diagram_id" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+    <Property Name="version" Type="int" />
+    <Property Name="definition" Type="varbinary(max)" />
+  </EntityType>
+  <Association Name="FK__Kampanya__OtellI__403A8C7D">
+    <End Role="Otel" Type="Self.Otel" Multiplicity="0..1" />
+    <End Role="Kampanya" Type="Self.Kampanya" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="Otel">
+        <PropertyRef Name="OtelID" />
+      </Principal>
+      <Dependent Role="Kampanya">
+        <PropertyRef Name="OtellID" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <!--Errors Found During Generation:
+error 6004: The table 'OtelMvc.dbo.otelinceleme' is referenced by a relationship, but cannot be found.
+        <Association Name="FK_otelinceleme_Musteri" />-->
+  <!--Errors Found During Generation:
+error 6004: The table 'OtelMvc.dbo.otelinceleme' is referenced by a relationship, but cannot be found.
+        <Association Name="FK_otelinceleme_Otel" />-->
+  <EntityContainer Name="OtelMvcModelStoreContainer">
+    <EntitySet Name="Kampanya" EntityType="Self.Kampanya" Schema="dbo" store:Type="Tables" />
+    <EntitySet Name="Musteri" EntityType="Self.Musteri" Schema="dbo" store:Type="Tables" />
+    <EntitySet Name="Odalar" EntityType="Self.Odalar" Schema="dbo" store:Type="Tables" />
+    <EntitySet Name="Otel" EntityType="Self.Otel" Schema="dbo" store:Type="Tables" />
+    <EntitySet Name="sysdiagrams" EntityType="Self.sysdiagrams" Schema="dbo" store:Type="Tables" />
+    <AssociationSet Name="FK__Kampanya__OtellI__403A8C7D" Association="Self.FK__Kampanya__OtellI__403A8C7D">
+      <End Role="Otel" EntitySet="Otel" />
+      <End Role="Kampanya" EntitySet="Kampanya" />
+    </AssociationSet>
+  </EntityContainer>
+</Schema>
