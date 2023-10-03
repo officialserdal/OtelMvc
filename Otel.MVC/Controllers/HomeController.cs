@@ -21,9 +21,9 @@ namespace Otel.MVC.Controllers
 
         public ActionResult About()
         {
-            ViewBag.Message = "Your application description page.";
+            var degerler = db.Otel.ToList();
 
-            return View();
+            return View(degerler);
         }
 
         public ActionResult Contact()
