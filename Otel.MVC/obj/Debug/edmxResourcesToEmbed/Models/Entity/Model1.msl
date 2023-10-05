@@ -4,6 +4,7 @@
     <EntitySetMapping Name="Kampanya">
       <EntityTypeMapping TypeName="OtelMvcModel.Kampanya">
         <MappingFragment StoreEntitySet="Kampanya">
+          <ScalarProperty Name="KampanyaAçıklama" ColumnName="KampanyaAçıklama" />
           <ScalarProperty Name="KampanyaID" ColumnName="KampanyaID" />
           <ScalarProperty Name="KampanyaAdı" ColumnName="KampanyaAdı" />
           <ScalarProperty Name="BaslangicTarihi" ColumnName="BaslangicTarihi" />

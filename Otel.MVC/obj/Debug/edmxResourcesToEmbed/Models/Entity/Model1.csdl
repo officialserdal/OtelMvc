@@ -11,6 +11,7 @@
     <Property Name="KampanyanyaFoto" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" />
     <Property Name="OtellID" Type="Int32" />
     <NavigationProperty Name="Otel" Relationship="Self.FK__Kampanya__OtellI__403A8C7D" FromRole="Kampanya" ToRole="Otel" />
+    <Property Name="KampanyaAçıklama" Type="String" MaxLength="Max" FixedLength="false" Unicode="false" />
   </EntityType>
   <EntityType Name="Musteri">
     <Key>

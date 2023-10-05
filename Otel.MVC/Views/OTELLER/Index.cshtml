@@ -1,0 +1,18 @@
+﻿@using Otel.MVC.Models.Entity
+@model List<Otel>
+<br />
+
+@foreach (var x in Model)
+{<div style="color:black; font-size:medium;">@x.OtelID.@x.OtelAdi</div>
+<br />
+<td><img src="@Url.Content(x.OtelResım)" width="800" height="500" alt="Otel Resmi" /></td>
+<br />
+<br />
+<div style="border: 5px solid #000; padding:3px; background-color:lightblue;">@x.Aciklama.@x.Adres</div>
+<br>
+}
+
+
+
+
+

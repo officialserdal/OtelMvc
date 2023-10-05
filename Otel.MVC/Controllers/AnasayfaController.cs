@@ -5,32 +5,18 @@ using System.Web;
 using System.Web.Mvc;
 using Otel.MVC.Models.Entity;
 
-
 namespace Otel.MVC.Controllers
 {
-  
-    public class HomeController : Controller
+    public class AnasayfaController : Controller
     {
+        // GET: Anasayfa
         OtelMvcEntities db = new OtelMvcEntities();
         public ActionResult Index()
         {
             var degerler = db.Otel.ToList();
 
             return View(degerler);
-        }
-
-        public ActionResult About()
-        {
-            var degerler = db.Otel.ToList();
-
-            return View(degerler);
-        }
-
-        public ActionResult Contact()
-        {
-            ViewBag.Message = "Your contact page.";
-
-            return View();
+          
         }
     }
 }

@@ -4,17 +4,18 @@
   <edmx:Runtime>
     <!-- SSDL content -->
     <edmx:StorageModels>
-      <Schema Namespace="OtelMvcModel.Store" Provider="System.Data.SqlClient" ProviderManifestToken="2012" Alias="Self" xmlns:store="http://schemas.microsoft.com/ado/2007/12/edm/EntityStoreSchemaGenerator" xmlns:customannotation="http://schemas.microsoft.com/ado/2013/11/edm/customannotation" xmlns="http://schemas.microsoft.com/ado/2009/11/edm/ssdl">
+    <Schema Namespace="OtelMvcModel.Store" Provider="System.Data.SqlClient" ProviderManifestToken="2012" Alias="Self" xmlns:store="http://schemas.microsoft.com/ado/2007/12/edm/EntityStoreSchemaGenerator" xmlns:customannotation="http://schemas.microsoft.com/ado/2013/11/edm/customannotation" xmlns="http://schemas.microsoft.com/ado/2009/11/edm/ssdl">
         <EntityType Name="Kampanya">
           <Key>
             <PropertyRef Name="KampanyaID" />
           </Key>
-          <Property Name="KampanyaID" Type="int" Nullable="false" />
+          <Property Name="KampanyaID" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
           <Property Name="KampanyaAdı" Type="varchar" MaxLength="25" />
           <Property Name="BaslangicTarihi" Type="date" />
           <Property Name="BitisTarihi" Type="date" />
           <Property Name="KampanyanyaFoto" Type="nvarchar(max)" />
           <Property Name="OtellID" Type="int" />
+          <Property Name="KampanyaAçıklama" Type="varchar(max)" />
         </EntityType>
         <EntityType Name="Musteri">
           <Key>
@@ -49,15 +50,6 @@
           <Property Name="Aciklama" Type="text" />
           <Property Name="OtelResım" Type="nvarchar(max)" />
         </EntityType>
-        <!--Errors Found During Generation:
-warning 6013: The table/view 'OtelMvc.dbo.otelinceleme' does not have a primary key defined and no valid primary key could be inferred. This table/view has been excluded. To use the entity, you will need to review your schema, add the correct keys, and uncomment it.
-        <EntityType Name="otelinceleme">
-          <Property Name="İncelemeID" Type="int" />
-          <Property Name="OtelID" Type="int" />
-          <Property Name="MusteriID" Type="int" />
-          <Property Name="Yorum" Type="nvarchar(max)" />
-          <Property Name="Puanlama" Type="int" />
-        </EntityType>-->
         <EntityType Name="sysdiagrams">
           <Key>
             <PropertyRef Name="diagram_id" />
@@ -80,12 +72,6 @@ warning 6013: The table/view 'OtelMvc.dbo.otelinceleme' does not have a primary 
             </Dependent>
           </ReferentialConstraint>
         </Association>
-        <!--Errors Found During Generation:
-error 6004: The table 'OtelMvc.dbo.otelinceleme' is referenced by a relationship, but cannot be found.
-        <Association Name="FK_otelinceleme_Musteri" />-->
-        <!--Errors Found During Generation:
-error 6004: The table 'OtelMvc.dbo.otelinceleme' is referenced by a relationship, but cannot be found.
-        <Association Name="FK_otelinceleme_Otel" />-->
         <EntityContainer Name="OtelMvcModelStoreContainer">
           <EntitySet Name="Kampanya" EntityType="Self.Kampanya" Schema="dbo" store:Type="Tables" />
           <EntitySet Name="Musteri" EntityType="Self.Musteri" Schema="dbo" store:Type="Tables" />
@@ -97,8 +83,7 @@ error 6004: The table 'OtelMvc.dbo.otelinceleme' is referenced by a relationship
             <End Role="Kampanya" EntitySet="Kampanya" />
           </AssociationSet>
         </EntityContainer>
-      </Schema>
-    </edmx:StorageModels>
+      </Schema></edmx:StorageModels>
     <!-- CSDL content -->
     <edmx:ConceptualModels>
       <Schema Namespace="OtelMvcModel" Alias="Self" annotation:UseStrongSpatialTypes="false" xmlns:annotation="http://schemas.microsoft.com/ado/2009/02/edm/annotation" xmlns:customannotation="http://schemas.microsoft.com/ado/2013/11/edm/customannotation" xmlns="http://schemas.microsoft.com/ado/2009/11/edm">
@@ -113,6 +98,7 @@ error 6004: The table 'OtelMvc.dbo.otelinceleme' is referenced by a relationship
           <Property Name="KampanyanyaFoto" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" />
           <Property Name="OtellID" Type="Int32" />
           <NavigationProperty Name="Otel" Relationship="Self.FK__Kampanya__OtellI__403A8C7D" FromRole="Kampanya" ToRole="Otel" />
+          <Property Name="KampanyaAçıklama" Type="String" MaxLength="Max" FixedLength="false" Unicode="false" />
         </EntityType>
         <EntityType Name="Musteri">
           <Key>
@@ -190,6 +176,7 @@ error 6004: The table 'OtelMvc.dbo.otelinceleme' is referenced by a relationship
           <EntitySetMapping Name="Kampanya">
             <EntityTypeMapping TypeName="OtelMvcModel.Kampanya">
               <MappingFragment StoreEntitySet="Kampanya">
+                <ScalarProperty Name="KampanyaAçıklama" ColumnName="KampanyaAçıklama" />
                 <ScalarProperty Name="KampanyaID" ColumnName="KampanyaID" />
                 <ScalarProperty Name="KampanyaAdı" ColumnName="KampanyaAdı" />
                 <ScalarProperty Name="BaslangicTarihi" ColumnName="BaslangicTarihi" />

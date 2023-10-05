@@ -1,59 +1,36 @@
 ﻿@using Otel.MVC.Models.Entity
 @model List<Otel>
 <div>
-    <br />
-   
+    
     <div style="text-align: center; color: darkslateblue; font-size: medium; font-size: 50px;">
-       <br />
+        <br />
         <p>OTELİNİ SEÇ YOLCULUĞA ÇIK</p>
     </div>
 
     <br />
-  
+
 </div>
-<br />
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
 @foreach (var x in Model)
 {
+    <br />
     <div style="color:black; font-size:medium;">@x.OtelID.@x.OtelAdi</div>
     <br />
+    
     <td><img src="@Url.Content(x.OtelResım)" width="800" height="500" alt="Otel Resmi" /></td>
     <br />
     <br />
+    
     <div style="border: 5px solid #000; padding:3px; background-color:lightblue;">
+
+
         @{
-            string aciklama = x.Aciklama;
-            string kisaltilmisAciklama = aciklama.Length > 195 ? aciklama.Substring(0, 195) : aciklama;
+            var aciklama = x.Aciklama;
+            var kisaltilmisAciklama = aciklama.Length <= 140 ? aciklama : aciklama.Substring(0, 140);
         }
         @kisaltilmisAciklama
-        @if (aciklama.Length > 195)
+        @if (aciklama.Length > 140)
         {
-
-            <a href="@Url.Action("About", "Home")">Devamını Oku</a>
-
+            <a href="@Url.Action("Index", "OTELLER", new { id = x.OtelID })">Devamını Oku</a>
         }
     </div>
-
-    <br />
-
 }
-
-
-

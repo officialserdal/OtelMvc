@@ -4,12 +4,13 @@
     <Key>
       <PropertyRef Name="KampanyaID" />
     </Key>
-    <Property Name="KampanyaID" Type="int" Nullable="false" />
+    <Property Name="KampanyaID" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
     <Property Name="KampanyaAdı" Type="varchar" MaxLength="25" />
     <Property Name="BaslangicTarihi" Type="date" />
     <Property Name="BitisTarihi" Type="date" />
     <Property Name="KampanyanyaFoto" Type="nvarchar(max)" />
     <Property Name="OtellID" Type="int" />
+    <Property Name="KampanyaAçıklama" Type="varchar(max)" />
   </EntityType>
   <EntityType Name="Musteri">
     <Key>
@@ -44,15 +45,6 @@
     <Property Name="Aciklama" Type="text" />
     <Property Name="OtelResım" Type="nvarchar(max)" />
   </EntityType>
-  <!--Errors Found During Generation:
-warning 6013: The table/view 'OtelMvc.dbo.otelinceleme' does not have a primary key defined and no valid primary key could be inferred. This table/view has been excluded. To use the entity, you will need to review your schema, add the correct keys, and uncomment it.
-        <EntityType Name="otelinceleme">
-          <Property Name="İncelemeID" Type="int" />
-          <Property Name="OtelID" Type="int" />
-          <Property Name="MusteriID" Type="int" />
-          <Property Name="Yorum" Type="nvarchar(max)" />
-          <Property Name="Puanlama" Type="int" />
-        </EntityType>-->
   <EntityType Name="sysdiagrams">
     <Key>
       <PropertyRef Name="diagram_id" />
@@ -75,12 +67,6 @@ warning 6013: The table/view 'OtelMvc.dbo.otelinceleme' does not have a primary 
       </Dependent>
     </ReferentialConstraint>
   </Association>
-  <!--Errors Found During Generation:
-error 6004: The table 'OtelMvc.dbo.otelinceleme' is referenced by a relationship, but cannot be found.
-        <Association Name="FK_otelinceleme_Musteri" />-->
-  <!--Errors Found During Generation:
-error 6004: The table 'OtelMvc.dbo.otelinceleme' is referenced by a relationship, but cannot be found.
-        <Association Name="FK_otelinceleme_Otel" />-->
   <EntityContainer Name="OtelMvcModelStoreContainer">
     <EntitySet Name="Kampanya" EntityType="Self.Kampanya" Schema="dbo" store:Type="Tables" />
     <EntitySet Name="Musteri" EntityType="Self.Musteri" Schema="dbo" store:Type="Tables" />
