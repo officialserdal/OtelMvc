@@ -17,5 +17,15 @@ namespace Otel.MVC.Controllers
 
             return View(degerler);
         }
+        [HttpGet]
+        public ActionResult Yonlendir(int id)
+        {
+            var yonlendır = db.Otel.Find(id);
+            return View(yonlendır);
+
+
+
+        }
+
     }
 }

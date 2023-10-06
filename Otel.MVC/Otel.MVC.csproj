@@ -128,6 +128,7 @@
     <Compile Include="App_Start\BundleConfig.cs" />
     <Compile Include="App_Start\FilterConfig.cs" />
     <Compile Include="App_Start\RouteConfig.cs" />
+    <Compile Include="Controllers\AdminController.cs" />
     <Compile Include="Controllers\AnasayfaController.cs" />
     <Compile Include="Controllers\KAMPANYALARController.cs" />
     <Compile Include="Controllers\OTELLERController.cs" />
@@ -226,6 +227,8 @@
     <Content Include="Views\OTELLER\Index.cshtml" />
     <Content Include="Views\Anasayfa\Index.cshtml" />
     <Content Include="Views\KAMPANYALAR\Index.cshtml" />
+    <Content Include="Views\Shared\_Admin.cshtml" />
+    <Content Include="Views\Admin\Index.cshtml" />
   </ItemGroup>
   <ItemGroup>
     <Folder Include="App_Data\" />
