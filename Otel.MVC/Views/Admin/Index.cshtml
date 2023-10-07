@@ -1,8 +1,33 @@
-﻿
+﻿@using Otel.MVC.Models.Entity
+@model List<Otel>
 @{
     ViewBag.Title = "Index";
     Layout = "~/Views/Shared/_Admin.cshtml";
 }
 
-<h2>Index</h2>
+<h2>OTEL LİSTESİ</h2>
+<br />
+<table class="table table-bordered">
+    <tr>
+        <th>OtelID</th>
+        <th>OtelADI</th>
+        <th>AÇIKLAMA</th>
+        <th>SİL</th>
+        <th>GÜNCELLE</th>
 
+    </tr>
+
+    @foreach (var x in Model)
+    {
+        <tr>
+            <td>@x.OtelID</td>
+            <td>@x.OtelAdi</td>
+            <td>AÇIKLAMA</td>
+            <td><a href="#" class="btn btn-danger">SİL</a></td>
+            <td><a href="#" class=" btn btn-warning">GÜNCELLE</a></td>
+
+        </tr>
+    }
+
+    </table>
+<a href="#"class="btn btn-primary">Yeni Otel</a>
