@@ -38,7 +38,7 @@
       </EntityTypeMapping>
     </EntitySetMapping>
     <EntitySetMapping Name="Otel">
-      <EntityTypeMapping TypeName="OtelMvcModel.Otel">
+      <EntityTypeMapping TypeName="OtelMvcModel.Otel1">
         <MappingFragment StoreEntitySet="Otel">
           <ScalarProperty Name="OtelID" ColumnName="OtelID" />
           <ScalarProperty Name="OtelAdi" ColumnName="OtelAdi" />

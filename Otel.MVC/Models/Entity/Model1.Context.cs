@@ -28,7 +28,7 @@ namespace Otel.MVC.Models.Entity
         public virtual DbSet<Kampanya> Kampanya { get; set; }
         public virtual DbSet<Musteri> Musteri { get; set; }
         public virtual DbSet<Odalar> Odalar { get; set; }
-        public virtual DbSet<Otel> Otel { get; set; }
+        public virtual DbSet<Otel1> Otel1 { get; set; }
         public virtual DbSet<sysdiagrams> sysdiagrams { get; set; }
     }
 }

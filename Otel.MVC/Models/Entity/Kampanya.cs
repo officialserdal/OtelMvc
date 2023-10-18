@@ -22,6 +22,6 @@ namespace Otel.MVC.Models.Entity
         public Nullable<int> OtellID { get; set; }
         public string KampanyaAçıklama { get; set; }
     
-        public virtual Otel Otel { get; set; }
+        public virtual Otel1 Otel { get; set; }
     }
 }

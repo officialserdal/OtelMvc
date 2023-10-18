@@ -11,9 +11,9 @@ namespace Otel.MVC.Controllers
     {
         // GET: Anasayfa
         OtelMvcEntities db = new OtelMvcEntities();
-        public ActionResult Index()
+        public ActionResult Index( )
         {
-            var degerler = db.Otel.ToList();
+            var degerler = db.Otel1.ToList();
 
             return View(degerler);
           

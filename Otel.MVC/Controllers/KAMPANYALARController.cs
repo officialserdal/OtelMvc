@@ -20,7 +20,7 @@ namespace Otel.MVC.Controllers
         [HttpGet]
         public ActionResult Yonlendir(int id)
         {
-            var yonlendır = db.Otel.Find(id);
+            var yonlendır = db.Otel1.Find(id);
             return View(yonlendır);
 
 

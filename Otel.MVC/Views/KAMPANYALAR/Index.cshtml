@@ -2,11 +2,9 @@
 @model List<Kampanya>
 @foreach (var x in Model)
 {
-    <div style="color:black; font-size:medium;">@x.KampanyaID.@x.KampanyaAdı</div>
-    <td><img src="@Url.Content(x.KampanyanyaFoto)" width="800" height="500" alt="Otel Resmi" /></td>
+    <div style="color: black; font-size: medium;">@x.KampanyaID. @x.KampanyaAdı</div>
+    <img src="@Url.Content(x.KampanyanyaFoto)" width="800" height="500" alt="Otel Resmi" />
     <br />
     <br />
-    <div style="border: 5px solid #000; padding:3px; background-color:lightblue;">@x.KampanyaAçıklama</div>
-    
+    <div style="border: 5px solid #000; padding: 3px; background-color: lightblue;">@x.KampanyaAçıklama</div>
 }
-

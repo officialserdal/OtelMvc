@@ -4,7 +4,10 @@ using System.Linq;
 using System.Web;
 using System.Web.Mvc;
 using Otel.MVC.Models.Entity;
-    
+
+
+
+
 
 namespace Otel.MVC.Controllers
 {
@@ -12,26 +15,28 @@ namespace Otel.MVC.Controllers
     {
 
         // GET: Admin
-        OtelMvcEntities otl = new OtelMvcEntities();
-         
+        OtelMvcEntities db = new OtelMvcEntities();
+
         public ActionResult Index()
         {
-            var degerler = otl.Otel.ToList();
+            var degerler = db.Otel1.ToList();
             return View(degerler);
         }
         [HttpGet]
         public ActionResult YeniOtel()
         {
-
+            
             return View();
         }
         [HttpPost]
-        public ActionResult YeniOtel(OtelMvcEntities oten)
+        public ActionResult YeniOtel(Otel1 p)
         {
-            return View();
-
-
-
+            
+            db.Otel1.Add(p);
+            db.SaveChanges();
+            return RedirectToAction("Index");
         }
+
+
     }
 }
