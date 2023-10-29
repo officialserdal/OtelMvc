@@ -13,7 +13,7 @@ namespace Otel.MVC.Controllers
         OtelMvcEntities db = new OtelMvcEntities();
         public ActionResult Index( )
         {
-            var degerler = db.Otel1.ToList();
+            var degerler = db.Otel11Set.ToList();
 
             return View(degerler);
           

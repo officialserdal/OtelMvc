@@ -19,7 +19,7 @@ namespace Otel.MVC.Controllers
 
         public ActionResult Index()
         {
-            var degerler = db.Otel1.ToList();
+            var degerler = db.Otel11Set.ToList();
             return View(degerler);
         }
         [HttpGet]
@@ -29,10 +29,13 @@ namespace Otel.MVC.Controllers
             return View();
         }
         [HttpPost]
-        public ActionResult YeniOtel(Otel1 p)
+        public ActionResult YeniOtel(Otel11Set p)
         {
-            
-            db.Otel1.Add(p);
+            if (!ModelState.IsValid)
+            {
+                return View("YeniOtel");
+            }
+            db.Otel11Set.Add(p);
             db.SaveChanges();
             return RedirectToAction("Index");
         }

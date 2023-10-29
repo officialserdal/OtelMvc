@@ -8,9 +8,9 @@
         <EntityTypeShape EntityType="OtelMvcModel.Kampanya" Width="1.5" PointX="4.25" PointY="0.75" IsExpanded="true" />
         <EntityTypeShape EntityType="OtelMvcModel.Musteri" Width="1.5" PointX="0.75" PointY="4.75" IsExpanded="true" />
         <EntityTypeShape EntityType="OtelMvcModel.Odalar" Width="1.5" PointX="2.75" PointY="4.75" IsExpanded="true" />
-        <EntityTypeShape EntityType="OtelMvcModel.Otel1" Width="1.5" PointX="1.75" PointY="1" IsExpanded="true" />
         <EntityTypeShape EntityType="OtelMvcModel.sysdiagrams" Width="1.5" PointX="4.75" PointY="4.75" IsExpanded="true" />
-        <AssociationConnector Association="OtelMvcModel.FK__Kampanya__OtellI__403A8C7D" ManuallyRouted="false" />
+        <EntityTypeShape EntityType="OtelMvcModel.Otel11Set" Width="1.5" PointX="0.75" PointY="1" />
+        <AssociationConnector Association="OtelMvcModel.FK__Kampanya__OtellI__403A8C7D" />
       </Diagram>
     </edmx:Diagrams>
   </edmx:Designer>

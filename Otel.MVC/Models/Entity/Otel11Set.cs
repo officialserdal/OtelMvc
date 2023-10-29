@@ -12,10 +12,10 @@ namespace Otel.MVC.Models.Entity
     using System;
     using System.Collections.Generic;
     
-    public partial class Otel1
+    public partial class Otel11Set
     {
         [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2214:DoNotCallOverridableMethodsInConstructors")]
-        public Otel1()
+        public Otel11Set()
         {
             this.Kampanya = new HashSet<Kampanya>();
         }

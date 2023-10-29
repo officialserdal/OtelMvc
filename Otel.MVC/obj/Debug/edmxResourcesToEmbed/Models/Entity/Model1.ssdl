@@ -33,7 +33,7 @@
     <Property Name="OdaÖzellik" Type="varchar" MaxLength="350" />
     <Property Name="OdaResım" Type="nvarchar(max)" />
   </EntityType>
-  <EntityType Name="Otel">
+  <EntityType Name="Otel11Set">
     <Key>
       <PropertyRef Name="OtelID" />
     </Key>
@@ -56,10 +56,10 @@
     <Property Name="definition" Type="varbinary(max)" />
   </EntityType>
   <Association Name="FK__Kampanya__OtellI__403A8C7D">
-    <End Role="Otel" Type="Self.Otel" Multiplicity="0..1" />
+    <End Role="Otel11Set" Type="Self.Otel11Set" Multiplicity="0..1" />
     <End Role="Kampanya" Type="Self.Kampanya" Multiplicity="*" />
     <ReferentialConstraint>
-      <Principal Role="Otel">
+      <Principal Role="Otel11Set">
         <PropertyRef Name="OtelID" />
       </Principal>
       <Dependent Role="Kampanya">
@@ -71,10 +71,10 @@
     <EntitySet Name="Kampanya" EntityType="Self.Kampanya" Schema="dbo" store:Type="Tables" />
     <EntitySet Name="Musteri" EntityType="Self.Musteri" Schema="dbo" store:Type="Tables" />
     <EntitySet Name="Odalar" EntityType="Self.Odalar" Schema="dbo" store:Type="Tables" />
-    <EntitySet Name="Otel" EntityType="Self.Otel" Schema="dbo" store:Type="Tables" />
+    <EntitySet Name="Otel11Set" EntityType="Self.Otel11Set" Schema="dbo" store:Type="Tables" />
     <EntitySet Name="sysdiagrams" EntityType="Self.sysdiagrams" Schema="dbo" store:Type="Tables" />
     <AssociationSet Name="FK__Kampanya__OtellI__403A8C7D" Association="Self.FK__Kampanya__OtellI__403A8C7D">
-      <End Role="Otel" EntitySet="Otel" />
+      <End Role="Otel11Set" EntitySet="Otel11Set" />
       <End Role="Kampanya" EntitySet="Kampanya" />
     </AssociationSet>
   </EntityContainer>

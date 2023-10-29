@@ -1,5 +1,5 @@
-﻿@using Otel.MVC.Models.Entity
-@model List<Otel1>
+﻿@model Otel.MVC.Models.Entity.Otel11Set
+
 @{
     ViewBag.Title = "YeniOtel";
     Layout = "~/Views/Shared/_Admin.cshtml";
@@ -7,24 +7,16 @@
 
 <h2>Yeni Otel Ekleme</h2>
 <br />
-<form class="form-group" method="post">
-   
-    <br />
-    @Html.LabelFor(x => x[0].OtelAdi)
-    @Html.TextBoxFor(x => x[0].OtelAdi, new { @class = "form-control" })
-    <br />
-    @Html.LabelFor(x => x[0].Aciklama)
-    @Html.TextBoxFor(x => x[0].Aciklama, new { @class = "form-control" })
-    <br />
-    @Html.LabelFor(x => x[0].Telefon)
-    @Html.TextBoxFor(x => x[0].Telefon, new { @class = "form-control" })
-    <br />
-    @Html.LabelFor(x => x[0].Adres)
-    @Html.TextBoxFor(x => x[0].Adres, new { @class = "form-control" })
-   <br />
-    @Html.LabelFor(x => x[0].OtelResım)
-    @Html.TextBoxFor(x => x[0].OtelResım,new { @class = "form-control" })
-    <br />
-    <button class="btn-primary">Otel Ekle</button>
-</form>
 
+<form class="form-group" method="post">
+    <div>
+        <br />
+
+        <label>Otel Adı</label>
+        @Html.TextBoxFor(model => model.OtelAdi, new { @class = "form-control" })
+        @Html.ValidationMessageFor(model => model.OtelAdi, "", new { @style = "color:red" })
+        <br />
+
+    </div>
+    <button class="btn btn-primary">Otel ekle</button>
+</form>
