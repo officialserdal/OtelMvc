@@ -39,6 +39,15 @@ namespace Otel.MVC.Controllers
             db.SaveChanges();
             return RedirectToAction("Index");
         }
+        public ActionResult OtelSil(int id)
+        {
+            var b = db.Otel11Set.Find(id);
+            db.Otel11Set.Remove(b);
+            db.SaveChanges();
+            return RedirectToAction("Index");
+
+
+        }
 
 
     }

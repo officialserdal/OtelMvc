@@ -16,7 +16,26 @@
         @Html.TextBoxFor(model => model.OtelAdi, new { @class = "form-control" })
         @Html.ValidationMessageFor(model => model.OtelAdi, "", new { @style = "color:red" })
         <br />
-
+        <label>Açıklama</label>
+        @Html.TextBoxFor(model => model.Aciklama, new { @class = "form-control" })
+        @Html.ValidationMessageFor(model => model.Aciklama, "", new { @style = "color:red" })
+        <br />
+        <label>Resim</label>
+        @Html.TextBoxFor(model => model.OtelResım, new { @class = "form-control" })
+        @Html.ValidationMessageFor(model => model.OtelResım, "", new { @style = "color:red" })
+        <br />
+        <label>Adres</label>
+        @Html.TextBoxFor(model => model.Adres, new { @class = "form-control" })
+        @Html.ValidationMessageFor(model => model.Adres, "", new { @style = "color:red" })
+        <br /><label>Telefon</label>
+        @Html.TextBoxFor(model => model.Telefon, new { @class = "form-control" })
+        @Html.ValidationMessageFor(model => model.Telefon, "", new { @style = "color:red" })
+        <br /><label>Yıldız Derecesi</label>
+        @Html.TextBoxFor(model => model.YildizDerecesi, new { @class = "form-control" })
+        @Html.ValidationMessageFor(model => model.YildizDerecesi, "", new { @style = "color:red" })
+        <br />
+       
+        
     </div>
     <button class="btn btn-primary">Otel ekle</button>
 </form>
