@@ -48,6 +48,27 @@ namespace Otel.MVC.Controllers
 
 
         }
+        public ActionResult OtelGetir(int id)
+        {
+            var bl = db.Otel11Set.Find(id);
+            return View("OtelGetir",bl);
+
+
+        }
+        public ActionResult OtelGuncelle(Otel11Set b)
+        {
+            var blg = db.Otel11Set.Find(b.OtelID);
+            blg.Aciklama = b.Aciklama;
+            blg.Adres = b.Adres;
+            blg.OtelAdi = b.OtelAdi;
+            blg.OtelResım = b.OtelResım;
+            blg.Telefon = b.Telefon;
+            blg.YildizDerecesi = b.YildizDerecesi;
+            db.SaveChanges();
+            return RedirectToAction("Index");
+
+            
+        }
 
 
     }

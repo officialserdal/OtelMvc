@@ -14,6 +14,8 @@ namespace Otel.MVC.Models.Entity
     
     public partial class Otel11Set
     {
+        internal readonly object[] ID;
+
         [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2214:DoNotCallOverridableMethodsInConstructors")]
         public Otel11Set()
         {

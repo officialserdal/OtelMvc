@@ -10,8 +10,11 @@
 
 <form class="form-group" method="post">
     <div>
+        
+        <br /><label>Otel ID</label>
+        @Html.TextBoxFor(model => model.OtelID, new { @class = "form-control" })
+        @Html.ValidationMessageFor(model => model.OtelID, "", new { @style = "color:red" })
         <br />
-
         <label>Otel Adı</label>
         @Html.TextBoxFor(model => model.OtelAdi, new { @class = "form-control" })
         @Html.ValidationMessageFor(model => model.OtelAdi, "", new { @style = "color:red" })
@@ -34,8 +37,8 @@
         @Html.TextBoxFor(model => model.YildizDerecesi, new { @class = "form-control" })
         @Html.ValidationMessageFor(model => model.YildizDerecesi, "", new { @style = "color:red" })
         <br />
-       
-        
+
+
     </div>
     <button class="btn btn-primary">Otel ekle</button>
 </form>

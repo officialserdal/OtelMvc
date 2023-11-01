@@ -1,0 +1,44 @@
+﻿@model Otel.MVC.Models.Entity.Otel11Set
+@{
+    ViewBag.Title = "OtelGetir";
+    Layout = "~/Views/Shared/_Admin.cshtml";
+}
+
+<h2>Otel Güncelleme Sayfası</h2>
+<br />
+@using (Html.BeginForm("OtelGuncelle", "Admin", FormMethod.Post))
+{
+    <br /><label>Otel ID</label>
+    @Html.TextBoxFor(model => model.OtelID, new { @class = "form-control" ,@readonly="readonly"})
+    @Html.ValidationMessageFor(model => model.OtelID, "", new { @style = "color:red" })
+    <br />
+    <label>Otel Adı</label>
+    @Html.TextBoxFor(model => model.OtelAdi, new { @class = "form-control" })
+    @Html.ValidationMessageFor(model => model.OtelAdi, "", new { @style = "color:red" })
+    <br />
+    <label>Açıklama</label>
+    @Html.TextBoxFor(model => model.Aciklama, new { @class = "form-control" })
+    @Html.ValidationMessageFor(model => model.Aciklama, "", new { @style = "color:red" })
+    <br />
+    <label>Resim</label>
+    @Html.TextBoxFor(model => model.OtelResım, new { @class = "form-control" })
+    @Html.ValidationMessageFor(model => model.OtelResım, "", new { @style = "color:red" })
+    <br />
+    <label>Adres</label>
+    @Html.TextBoxFor(model => model.Adres, new { @class = "form-control" })
+    @Html.ValidationMessageFor(model => model.Adres, "", new { @style = "color:red" })
+    <br /><label>Telefon</label>
+    @Html.TextBoxFor(model => model.Telefon, new { @class = "form-control" })
+    @Html.ValidationMessageFor(model => model.Telefon, "", new { @style = "color:red" })
+    <br /><label>Yıldız Derecesi</label>
+    @Html.TextBoxFor(model => model.YildizDerecesi, new { @class = "form-control" })
+    @Html.ValidationMessageFor(model => model.YildizDerecesi, "", new { @style = "color:red" })
+    <br />
+
+
+
+
+    <button class="btn btn-primary">Otel Güncelle</button>
+
+}
+
